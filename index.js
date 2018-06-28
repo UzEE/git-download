@@ -49,7 +49,7 @@ module.exports = function(options, callback) {
       // Read in the downloaded tarfile
       fs.createReadStream(gitOptions.output)
         // Explode the downloaded tarfile
-        .pipe(tar.Extract({ path: options.dest }))
+        .pipe(tar.extract({ cwd: options.dest }))
         // Handle extraction errors
         .on('error', function (er) {
           callback && callback(er);
